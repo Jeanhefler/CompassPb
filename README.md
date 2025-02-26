@@ -60,3 +60,7 @@ ___
 - Descrição: Deleta o registro de um tickets
 ___
 ## Cenários
+Movies, cenários positivos e negativos
+![](images/moviesScenarios.jpg)
+Tickets, cenários positivos e negativos
+![](images/ticketsScenarios.jpg)
