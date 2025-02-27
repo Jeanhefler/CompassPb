@@ -67,9 +67,18 @@ Tickets, cenários positivos e negativos
 ![](images/ticketsScenarios.jpg)
 
 ## Planejamento funcional
-
 ### Introdução
-seguindo sua documentação, serão conduzidos testes funcionais nas rotas movies e tickets da API Cinema, sendo eles, teste positivo, teste negativo e smoke test, com o objetivo de validar se as funcionalidades da API estão funcionando como esperado, para isso, será utilizado a ferramentas postman. 
+seguindo sua documentação, serão conduzidos testes funcionais nas rotas movies e tickets da API Cinema, sendo eles, teste positivo, teste negativo e smoke test, com o objetivo de validar se as funcionalidades da API estão funcionando como esperado, para isso, será utilizado a ferramentas postman.
+
+### Requisitos
+#### **Postman**
+O postman é utilizado para realizar os testes funcionais, pode ser instalado pelo [site](https://www.postman.com/downloads/) oficial do postman.
+
+#### **API**
+pode ser executada em um ambiente local com o npm, instale o npm utilizando o comando `npm install`.
+Clone o [repositório](https://github.com/juniorschmitz/nestjs-cinema) da api e na pasta raiz do repositório execute o comando `npm run start`.
+
+Para executar com Docker, é necessário utilizar o docker build para criar uma imagem da api. Para isso, Baixe o arquivo "Dockerfile" desse repositório, copie e cole na pasta raiz do diretório da API, depois execute o comando `docker build -t cinema .` que ira criar uma imagem docker da api com o nome "cinema"
 
 ### Itens a serem testados
 - Movies: `/movies`
