@@ -6,6 +6,7 @@ Olá, meu nome é Jean Victor de Azevedo Hefler, tenho 20 anos e estou cursando 
 - **[Introdução](#introdução)**
 - **[Sobre a API](#sobre-a-api)**
 - **[Cenários](#cenários)**
+- **[Planejamento funcional](#planejamento-funcional)**
 
 ## Introdução
 Esse repositório contém o projeto da sprint 8 do programa de bolsas de Quality Assurance da compass Uol, onde eu utilizei o conhecimento adquirido durante o programa de bolsas, para o desenvolvimento de testes de performance na API [Cinema](https://github.com/juniorschmitz/nestjs-cinema).
@@ -64,3 +65,32 @@ Movies, cenários positivos e negativos
 ![](images/moviesScenarios.jpg)
 Tickets, cenários positivos e negativos
 ![](images/ticketsScenarios.jpg)
+
+## Planejamento funcional
+
+### Introdução
+seguindo sua documentação, serão conduzidos testes funcionais nas rotas movies e tickets da API Cinema, sendo eles, teste positivo, teste negativo e smoke test, com o objetivo de validar se as funcionalidades da API estão funcionando como esperado, para isso, será utilizado a ferramentas postman. 
+
+### Itens a serem testados
+- Movies: `/movies`
+- Ticket: `/tickets`
+
+### Cenários a serem testados
+**Movies**
+- Registrar um filme
+- Atualizar um registro
+- Buscar todos os registros
+- Buscar um registo
+- Deletar um registro
+
+**Tickets**
+- Registrar um ticket
+- Atualizar um ticket
+- Buscar todos os tickets
+- Buscar um ticket
+- Deletar um ticket
+
+### Estratégia de testes
+- Teste positivo -  Serão feitos testes positivos para garantir que as funcionalidades estão reagindo como esperado.
+
+- Teste negativo - Serão feitos testes negativos com o objetivo de validar o tratamento de erro e analisar como a api reage a uma ação inesperada.
