@@ -61,6 +61,24 @@ ___
 - URL: urlBase/tickets/{id}
 - Descrição: Deleta o registro de um tickets
 ___
+
+### Requisitos funcionais
+Todos os metodos HTTP devem funcionar corretamente, retornando o status code http esperado na sua documentação, e respostas esperadas após a execusão da requisição. 
+
+### Requisitos não funcionais
+- A API deve ser capaz de processar pelo menos 10 
+solicitações de criação de filmes por segundo.
+- O tempo médio de resposta para a criação de um novo filme  não deve exceder 200 milissegundos.
+- A API deve ser capaz de responder a solicitações GET de    listagem de filmes em menos de 100 milissegundos.
+- A lista de filmes deve ser paginada, com no máximo 20 filmes por página.
+- A API deve ser capaz de responder a solicitações GET de detalhes de um filme em menos de 50 milissegundos.
+- A API deve ser capaz de processar pelo menos 50 solicitações de atualização de filmes por segundo.
+- O tempo médio de resposta para a atualização dos detalhes de um filme não deve exceder 300 milissegundos.
+- A API deve ser capaz de processar pelo menos 30 solicitações de exclusão de filmes por segundo.
+- O tempo médio de resposta para a exclusão de um filme não deve exceder 400 milissegundos.
+- A API deve ser capaz de processar pelo menos 50 solicitações de reserva de ingressos por segundo.
+- O tempo médio de resposta para a reserva de um ingresso não deve exceder 300 milissegundos.
+
 ## Cenários
 Movies, cenários positivos e negativos
 ![](images/moviesScenarios.jpg)
@@ -147,4 +165,4 @@ Serão conduzidos testes de Performance com o objetivo de validar os requisitos 
 
 - DELETE - Será realizado um teste de carga com o objetico de validar as métricas esperadas na exclusão de filmes.
 #### Tickets
-- POST - Será realizado um teste de estresse com o objetivo de validar as métricas esperadas durante a reserva de ingressos
+- POST - Será realizado um teste de resistência com o objetivo de validar as métricas esperadas durante a reserva de ingressos
