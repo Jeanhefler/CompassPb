@@ -7,6 +7,7 @@ Olá, meu nome é Jean Victor de Azevedo Hefler, tenho 20 anos e estou cursando 
 - **[Sobre a API](#sobre-a-api)**
 - **[Cenários](#cenários)**
 - **[Planejamento funcional](#planejamento-funcional)**
+- **[Planejamento não funcional](#planejamento-não-funcional)**
 
 ## Introdução
 Esse repositório contém o projeto da sprint 8 do programa de bolsas de Quality Assurance da compass Uol, onde eu utilizei o conhecimento adquirido durante o programa de bolsas, para o desenvolvimento de testes de performance na API [Cinema](https://github.com/juniorschmitz/nestjs-cinema).
@@ -14,7 +15,7 @@ Esse repositório contém o projeto da sprint 8 do programa de bolsas de Quality
 ## Sobre a API
 ### Informações Gerais
 - Nome: Cinema
-- UrlBase: a definir
+- UrlBase: localhost:3000 
 
 ### Endpoints e Requests
 ENDPOINT: `/movies`
@@ -68,7 +69,7 @@ Tickets, cenários positivos e negativos
 
 ## Planejamento funcional
 ### Introdução
-seguindo sua documentação, serão conduzidos testes funcionais nas rotas movies e tickets da API Cinema, sendo eles, teste positivo, teste negativo e smoke test, com o objetivo de validar se as funcionalidades da API estão funcionando como esperado, para isso, será utilizado a ferramentas postman.
+com o objetivo de validar se as funcionalidades estão funcionando como esperado, serão conduzidos testes funcionais na API Cinema seguindo sua documetação, sendo eles, teste positivo, teste negativo e smoke test, para isso, será utilizado a ferramenta postman.
 
 ### Requisitos
 #### **Postman**
@@ -103,3 +104,47 @@ Para executar com Docker, é necessário utilizar o docker build para criar uma 
 - Teste positivo -  Serão feitos testes positivos para garantir que as funcionalidades estão reagindo como esperado.
 
 - Teste negativo - Serão feitos testes negativos com o objetivo de validar o tratamento de erro e analisar como a api reage a uma ação inesperada.
+
+## Planejamento não funcional
+### Introdução
+Seguindo sua documentação, serão realizados testes de performance na API cinema, com o objetivo de validar se o desempenho da API está dentro das métricas esperadas. Para isso será utilizado a ferramenta K6.
+
+### Requisitos
+#### K6
+O K6 será utilizado para realizar os testes de performance, o K6 pode ser instalado seguindo sua [Documentação](https://grafana.com/docs/k6/latest/set-up/install-k6/?pg=get&plcmt=selfmanaged-box10-cta1) oficial.
+
+#### **API**
+pode ser executada em um ambiente local com o npm, instale o npm utilizando o comando `npm install`.
+Clone o [repositório](https://github.com/juniorschmitz/nestjs-cinema) da api e na pasta raiz do repositório execute o comando `npm run start`.
+
+Para executar com Docker, é necessário utilizar o docker build para criar uma imagem da api. Para isso, Baixe o arquivo "Dockerfile" desse repositório, copie e cole na pasta raiz do diretório da API, depois execute o comando `docker build -t cinema .` que ira criar uma imagem docker da api com o nome "cinema"
+### Itens a serem testados
+- Movies: `/movies`
+- Ticket: `/tickets`
+
+### Cenários a serem testados
+**Movies**
+- Registrar um filme
+- Atualizar um registro
+- Buscar todos os registros
+- Buscar um registo
+- Deletar um registro
+
+**Tickets**
+- Registrar um ticket
+- Atualizar um ticket
+- Buscar todos os tickets
+- Buscar um ticket
+- Deletar um ticket
+### Estratégia de testes
+Serão conduzidos testes de Performance com o objetivo de validar os requisitos não funcionais da api seguindo os critérios formulados no repositório da api. Sendo eles, teste de resistencia, teste de carga, teste de volume, teste de carga
+#### Movies
+- POST - Será realizado um teste de resistência com o objetivo de validar as métricas esperadas no cadastro de filmes com valores acima do esperado.
+
+- GET - Será realizado um teste de carga com o objetico de validar as métricas esperadas na busca de filmes.
+
+- PUT - Será realizado um teste de volume com o objetivo de validar as métricas esperadas na atualização com um volume grande de dados
+
+- DELETE - Será realizado um teste de carga com o objetico de validar as métricas esperadas na exclusão de filmes.
+#### Tickets
+- POST - Será realizado um teste de estresse com o objetivo de validar as métricas esperadas durante a reserva de ingressos
