@@ -10,9 +10,25 @@ export function getMovies(){
     return http.get(url + endpoint)
 }
 
+export function getMovieById(id){
+    return http.get(`${url}` + `${endpoint}` + "/" + id)
+}
+
 export function createMovie(){
 const payload = JSON.stringify(movieDynamicData());
 const params = {
     headers: {'Content-Type': 'application/json',},};
 return http.post(`${url}` + `${endpoint}`, payload, params)
+}
+
+export function updateMovie(id){
+    const payload = JSON.stringify(movieDynamicData());
+    const params = {
+    headers: {'Content-Type': 'application/json',},};
+    return http.put(`${url}` + `${endpoint}` + "/" + id, payload, params)
+}
+
+export function deleteMovie(id){
+    const params = { headers: { 'X-MyHeader': 'k6test' } };
+    http.del(`${url}` + `${endpoint}` + "/" + id, null, params);
 }
