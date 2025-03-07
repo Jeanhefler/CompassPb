@@ -29,6 +29,10 @@ export function updateMovie(id){
 }
 
 export function deleteMovie(id){
-    const params = { headers: { 'X-MyHeader': 'k6test' } };
+    const params = { headers: { 
+        'X-MyHeader': 'k6test',
+        'Accept': 'application/json', 
+        'Content-Type': 'application/json',
+     } };
     http.del(`${url}` + `${endpoint}` + "/" + id, null, params);
 }

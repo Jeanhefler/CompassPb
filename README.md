@@ -159,10 +159,14 @@ Serão conduzidos testes de Performance com o objetivo de validar os requisitos 
 #### Movies
 - POST - Será realizado um teste de resistência com o objetivo de validar as métricas esperadas no cadastro de filmes com valores acima do esperado.
 
+- GET(id) - Será realizado um teste de capacidade com o objetivo de validar as métricas esperadas da busca de um filme, e o comportamento da api com volumes de dados acima do esperado.
+
 - GET - Será realizado um teste de carga com o objetico de validar as métricas esperadas na busca de filmes.
 
-- PUT - Será realizado um teste de volume com o objetivo de validar as métricas esperadas na atualização com um volume grande de dados
+- PUT - Será realizado um teste de volume com o objetivo de validar as métricas esperadas na atualização e o comportamento da api com um volume grande de dados
 
-- DELETE - Será realizado um teste de carga com o objetico de validar as métricas esperadas na exclusão de filmes.
+- DELETE - Será realizado um teste de latência com o objetico de validar as métricas esperadas na exclusão de filmes e o comportamento da api em requisições de alta latência
 #### Tickets
-- POST - Será realizado um teste de resistência com o objetivo de validar as métricas esperadas durante a reserva de ingressos
+- POST - Será realizado um teste de carga com o objetivo de validar as métricas esperadas durante a reserva de ingressos
+
+- GET - Será realizado um teste de resistência com o objetico de validar as métricas esperadas durante a busca de ingressos, e do comportamento da api com um valor alto e constante de dados.
