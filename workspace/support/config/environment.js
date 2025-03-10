@@ -60,6 +60,16 @@ export const testConfig = {
             http_req_duration: ['p(95)<50'], 
         },
     },
-
+    loadTickets: {
+        stages: [
+            { duration: '1m', target: 80 },
+            { duration: '1m', target: 80 },
+            { duration: '1m', target: 0}
+          ],
+        thresholds: {
+            http_req_failed: ['rate<0.01'],
+            http_req_duration: ['p(95)<300'], 
+        },
+    },
 
 }

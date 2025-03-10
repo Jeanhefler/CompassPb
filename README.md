@@ -125,11 +125,14 @@ Para executar com Docker, é necessário utilizar o docker build para criar uma 
 
 ## Planejamento não funcional
 ### Introdução
-Seguindo sua documentação, serão realizados testes de performance na API cinema, com o objetivo de validar se o desempenho da API está dentro das métricas esperadas. Para isso será utilizado a ferramenta K6.
+Seguindo sua documentação, serão realizados testes de performance na API cinema, com o objetivo de validar se o desempenho da API está dentro das métricas esperadas. Para isso será utilizado as ferramentas K6 e Traffic control.
 
 ### Requisitos
 #### K6
 O K6 será utilizado para realizar os testes de performance, o K6 pode ser instalado seguindo sua [Documentação](https://grafana.com/docs/k6/latest/set-up/install-k6/?pg=get&plcmt=selfmanaged-box10-cta1) oficial.
+
+#### Traffic Control
+O traffic control é uma ferramenta nativa do linux usada para adicionar látencia a interface de rede, será usado para testes de látencia.
 
 #### **API**
 pode ser executada em um ambiente local com o npm, instale o npm utilizando o comando `npm install`.

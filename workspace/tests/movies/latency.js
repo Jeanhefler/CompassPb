@@ -8,6 +8,7 @@ export function handleSummary(data) {
       "movieLatency.html": htmlReport(data),
     };
 }
+
 export const options = testConfig.latency
 
 export function setup(){
