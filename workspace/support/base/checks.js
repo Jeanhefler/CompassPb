@@ -19,9 +19,4 @@ export class BaseChecks {
             'status code check 400': (r) => r.status === expectedStatus,
         });
     };
-    checkStatusCode204(response, expectedStatus = 204){
-        check(response , {
-            'status code check 204': (r) => r.status === expectedStatus,
-        });
-    };
 }
