@@ -244,3 +244,5 @@ Como diferencial do meu projeto, eu optei por realizar os testes na api rodando 
 ![](images/ticketEndurance.png)
 `POST` CARGA
 ![](images/ticketLoad.png)
+### **Fluxo**
+![](images/flow.js.png)
