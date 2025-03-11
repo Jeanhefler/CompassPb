@@ -1,6 +1,6 @@
 # Compass Pb Quality Assurance 
 ## Sobre mim
-Olá, meu nome é Jean Victor de Azevedo Hefler, tenho 20 anos e estou cursando ciência da computação na Atitus (Passo Fundo), atualmente no 5° semestre do curso, gosto de teoria computacional, programação e física. Estou finalizando o programa de bolsas da **CompassUol**, no qual aprendi muito sobre a área de QA e sua importância.
+Olá, meu nome é Jean Victor de Azevedo Hefler, tenho 20 anos, sou de Campos Borges-RS e estou cursando ciência da computação na Atitus, atualmente no 5° semestre do curso, gosto de teoria computacional, programação e física. Estou realizando o programa de bolsas da **CompassUol** de quality assurance, no qual estou aprendendo muito sobre a área, e sua importância.
 
 ## Sumário
 - **[Introdução](#introdução)**
@@ -8,6 +8,8 @@ Olá, meu nome é Jean Victor de Azevedo Hefler, tenho 20 anos e estou cursando 
 - **[Cenários](#cenários)**
 - **[Planejamento funcional](#planejamento-funcional)**
 - **[Planejamento não funcional](#planejamento-não-funcional)**
+- **[Inovação](#inovação)**
+- **[Testes](#testes-de-performance)**
 
 ## Introdução
 Esse repositório contém o projeto da sprint 8 do programa de bolsas de Quality Assurance da compass Uol, onde eu utilizei o conhecimento adquirido durante o programa de bolsas, para o desenvolvimento de testes de performance na API [Cinema](https://github.com/juniorschmitz/nestjs-cinema).
@@ -63,8 +65,54 @@ ___
 ___
 
 ### Requisitos funcionais
-Todos os metodos HTTP devem funcionar corretamente, retornando o status code http esperado na sua documentação, e respostas esperadas após a execusão da requisição. 
+`/MOVIES`
 
+1 - Criando um Novo Filme:
+
+- O usuário administrador da API envia uma solicitação POST para o endpoint /movies com os detalhes do filme.
+- O sistema valida os campos obrigatórios e a unicidade do título.
+- Se as validações passarem, o sistema cria o filme e atribui um ID único.
+- O sistema retorna uma resposta de sucesso com o status 201 Created, incluindo o ID do filme.
+
+2 - Obtendo a Lista de Filmes:
+
+- O usuário envia uma solicitação GET para o endpoint /movies.
+- O sistema retorna uma lista de todos os filmes cadastrados com detalhes.
+
+3 - Obtendo Detalhes de um Filme por ID:
+
+- O usuário envia uma solicitação GET para o endpoint /movies/{id}, onde {id} é o ID do filme desejado.
+- O sistema verifica a existência do filme e retorna seus detalhes.
+- Se o filme não existir, o sistema retorna uma resposta de erro com o status 404 Not Found.
+
+4 - Atualizando os Detalhes de um Filme por ID:
+
+- O usuário administrador da API envia uma solicitação PUT para o endpoint /movies/{id}, onde {id} é o ID do filme a ser atualizado.
+- O sistema verifica a existência do filme, permite a atualização de campos específicos e valida os dados.
+- Se todas as validações passarem, o sistema atualiza os detalhes do filme.
+- O sistema retorna uma resposta de sucesso com o status 200 OK e os detalhes atualizados do filme.
+
+5 - Excluindo um Filme por ID:
+- O usuário administrador da API envia uma solicitação DELETE para o endpoint /movies/{id}, onde {id} é o ID do filme a ser excluído.
+- O sistema verifica a existência do filme e o remove permanentemente do banco de dados.
+- O sistema retorna uma resposta de sucesso com o status 204 No Content.
+
+`/TICKETS`
+
+- O usuário envia uma solicitação POST para o endpoint /tickets com os seguintes detalhes do ingresso:
+- ID do Filme (movieId) - Identifica o filme para o qual o ingresso está sendo reservado.
+- ID do Usuário (userId) - Identifica o usuário que está fazendo a reserva.
+- Número do Assento (seatNumber) - O número do assento que o usuário deseja reservar.
+- Preço do Ingresso (price) - O preço do ingresso para o filme.
+- Data de Apresentação (showtime) - A data e hora da apresentação do filme.
+- O sistema valida se todos os campos obrigatórios estão preenchidos corretamente.
+- O sistema verifica se o número do assento está dentro do intervalo de 0 a 99.
+- O sistema verifica se o preço do ingresso está dentro do intervalo de 0 a 60.
+- Se todas as validações passarem, o sistema cria uma reserva de ingresso com os detalhes fornecidos.
+- O sistema atribui um ID único à reserva de ingresso.
+- O sistema retorna uma resposta de sucesso com o status 201 Created, incluindo o ID da reserva de ingresso.
+
+___
 ### Requisitos não funcionais
 - A API deve ser capaz de processar pelo menos 10 
 solicitações de criação de filmes por segundo.
@@ -157,6 +205,7 @@ Para executar com Docker, é necessário utilizar o docker build para criar uma 
 - Buscar todos os tickets
 - Buscar um ticket
 - Deletar um ticket
+___
 ### Estratégia de testes
 Serão conduzidos testes de Performance com o objetivo de validar os requisitos não funcionais da api seguindo os critérios formulados no repositório da api. Sendo eles, teste de resistencia, teste de carga, teste de volume, teste de carga
 #### Movies
@@ -173,3 +222,25 @@ Serão conduzidos testes de Performance com o objetivo de validar os requisitos 
 - POST - Será realizado um teste de carga com o objetivo de validar as métricas esperadas durante a reserva de ingressos
 
 - GET - Será realizado um teste de resistência com o objetico de validar as métricas esperadas durante a busca de ingressos, e do comportamento da api com um valor alto e constante de dados.
+___
+### Inovação
+Como diferencial do meu projeto, eu optei por realizar os testes na api rodando em um AWS-EC2.
+
+![](images/awsInstance.png)
+## Testes de performance
+### **/movies**
+`GET` CARGA
+![](images/movieLoad.png)
+`GET(id)` CAPACIDADE
+![](images/movieCapacity.png)
+`POST` RESISTÊNCIA
+![](images/movieEndurance.png)
+`PUT` VOLUME
+![](images/movieVolume.png)
+`DELETE` LATÊNCIA
+![](images/movieLatency.png)
+### **/tickets**
+`GET` RESISTÊNCIA
+![](images/ticketEndurance.png)
+`POST` CARGA
+![](images/ticketLoad.png)

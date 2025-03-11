@@ -1,7 +1,7 @@
 export const testConfig = {
     environment: {
         htm: {
-            url: 'http://localhost:3000'
+            url: 'http://23.20.91.191:3000'
         }
     },
     load: {
